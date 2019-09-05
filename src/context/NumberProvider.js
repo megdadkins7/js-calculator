@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, createContext } from 'react'
 
-export const NumberContext = React.createContext();
+export const NumberContext = createContext();
 
 const NumberProvider = props => {
   const [num, setNum] = useState('');
@@ -8,7 +8,7 @@ const NumberProvider = props => {
   const [functionType, setFunctionType] = useState('');
 
   const handleDisplayVal = number => {
-    if((!num.includes('.') || num !== '.') && number.length < 8) {
+    if((!num.includes('.') || number !== '.') && num.length < 8) {
       setNum(`${(num + number).replace(/^0+/, '')}`);
     }
   };
